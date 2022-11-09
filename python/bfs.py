@@ -1,12 +1,12 @@
-from binary_node import BinaryNode as Node
+from binary_node import BinaryNode
 
-n1 = Node(value='A')
-n2 = Node(value='B')
-n3 = Node(value='C', left=n1, right=n2)
-n4 = Node(value='D')
-n5 = Node(value='E')
-n6 = Node(value='F', left=n4, right=n5)
-n7 = Node(value='G', left=n3, right=n6)
+n1 = BinaryNode(value='A')
+n2 = BinaryNode(value='B')
+n3 = BinaryNode(value='C', left=n1, right=n2)
+n4 = BinaryNode(value='D')
+n5 = BinaryNode(value='E')
+n6 = BinaryNode(value='F', left=n4, right=n5)
+n7 = BinaryNode(value='G', left=n3, right=n6)
 
 graph = n7
 
@@ -22,6 +22,7 @@ def bfs(graph, target_value):
 
 
 # Pass these tests
-assert bfs(graph, 'C').left == 'A'
-assert bfs(graph, 'F').right == 'E'
+assert bfs(graph, 'G').value == 'G'
+assert bfs(graph, 'C').left.value == 'A'
+assert bfs(graph, 'F').right.value == 'E'
 assert bfs(graph, 'E').left == None
