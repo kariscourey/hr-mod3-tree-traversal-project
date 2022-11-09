@@ -22,6 +22,7 @@ def dfs(graph, target_value):
 
 
 # Pass these tests
+assert dfs(graph, 'G').value == 'G'
 assert dfs(graph, 'C').left.value == 'A'
 assert dfs(graph, 'F').right.value == 'E'
 assert dfs(graph, 'E').left == None
