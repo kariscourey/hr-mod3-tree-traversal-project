@@ -32,10 +32,13 @@ def dfs(graph, target_value):
     while len(stack) > 0:
         node = stack.pop()
         if node.value == target_value: return node
-        if node.left is not None:
-            stack.append(node.left)
-        if node.right is not None:
-            stack.append(node.right)
+        for child in ['left', 'right']:
+            n = getattr(node, child)
+            if n is not None: stack.append(n)
+        # if node.left is not None:
+        #     stack.append(node.left)
+        # if node.right is not None:
+        #     stack.append(node.right)
     return None
 
 

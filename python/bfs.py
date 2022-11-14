@@ -39,10 +39,13 @@ def bfs(graph, target_value):
     while len(queue) > 0:
         node = queue.pop(0)
         if node.value == target_value: return node
-        if node.left is not None:
-            queue.append(node.left)
-        if node.right is not None:
-            queue.append(node.right)
+        for child in ['left', 'right']:
+            n = getattr(node, child)
+            if n is not None: queue.append(n)
+        # if node.left is not None:
+        #     queue.append(node.left)
+        # if node.right is not None:
+        #     queue.append(node.right)
     return None
 
 
