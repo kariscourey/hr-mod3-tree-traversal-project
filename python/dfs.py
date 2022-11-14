@@ -18,7 +18,25 @@ Implement Depth First Search
 4. Return if target. Otherwise, go to step 2 and repeat.
 '''
 def dfs(graph, target_value):
-    pass
+    # if graph.value == target_value:
+    #     return graph
+    # elif graph.left.value == target_value:
+    #     return graph.left
+    # elif graph.right.value == target_value:
+    #     return graph.right
+    # elif graph.left.value > target_value:
+    #     return dfs(graph.left, target_value)
+    # elif graph.right.value > target_value:
+    #     return dfs(graph.right, target_value)
+    stack = [graph]
+    while len(stack) > 0:
+        node = stack.pop()
+        if node.value == target_value: return node
+        if node.left is not None:
+            stack.append(node.left)
+        if node.right is not None:
+            stack.append(node.right)
+    return None
 
 
 # Pass these tests

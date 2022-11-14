@@ -14,13 +14,17 @@ graph = n7
 Traverse the tree to find the minimum value in the tree
 '''
 def min_of_tree(graph):
-    pass
+    if graph.left:
+        return min_of_tree(graph.left)
+    return graph.left.value
 
 '''
 Traverse the tree to find the maximum value in the tree
 '''
 def max_of_tree(graph):
-    pass
+    if graph.right:
+        return min_of_tree(graph.right)
+    return graph.right.value
 
 # Pass these tests
 assert min_of_tree(graph) == 1

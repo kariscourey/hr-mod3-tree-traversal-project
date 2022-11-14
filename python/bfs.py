@@ -9,6 +9,14 @@ n6 = BinaryNode(value='F', left=n4, right=n5)
 n7 = BinaryNode(value='G', left=n3, right=n6)
 
 graph = n7
+# print(n7)
+# print(type(n7))
+# print(n7.value)
+# print(type(n7.value))
+# print(n7.right)
+# print(type(n7.right))
+# print(n7.left)
+# print(type(n7.left))
 
 '''
 Implement Breadth First Search
@@ -18,7 +26,24 @@ Implement Breadth First Search
 4. Return if target. Otherwise, go to step 2 and repeat.
 '''
 def bfs(graph, target_value):
-    pass
+    # if graph.value == target_value:
+    #     return graph
+    # else:
+    #     if graph.left.value == target_value:
+    #         return graph.left
+    #     elif graph.right.value == target_value:
+    #         return graph.right
+    #     else:
+    #         bfs(graph, target_value)
+    queue = [graph]
+    while len(queue) > 0:
+        node = queue.pop(0)
+        if node.value == target_value: return node
+        if node.left is not None:
+            queue.append(node.left)
+        if node.right is not None:
+            queue.append(node.right)
+    return None
 
 
 # Pass these tests
